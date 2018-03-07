@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+ <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>联系我们</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Free HTML5 Template by FREEHTML5.co" />
+    <meta name="keywords" content="freebie, template, bootstrap, html5, css3, mobile first, responsive" />
+    <meta name="author" content="FREEHTML5.co" />
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- Google Webfont -->
+    <link href='http://fonts.useso.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap & Style -->
+    <link rel="stylesheet" href="~/wwwroot/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/wwwroot/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/wwwroot/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/wwwroot/css/magnific-popup.css">
+    <link rel="stylesheet" href="~/wwwroot/css/style.css">
+
+    <!-- Iconfonts -->
+    <link rel="stylesheet" href="~/wwwroot/css/themify-icons.css">
+
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body id="inner-page">
+    <div id="top"></div>
+    <div id="fh5co-page">
+
+        @{
+            Html.RenderPartial("~/Views/_Base/_BaseElement.cshtml");
+        }
+
+        <header id="fh5co-header" role="banner">
+            <div class="container">
+
+                <a href="index.html" id="fh5co-header-logo"><img src="~/wwwroot/images/logo.png" alt="Sprint Logo"></a>
+                <a href="#" class="fh5co-header-bars js-nav-toggle"><span>Menu</span> <i class="ti-menu"></i></a>
+
+                <h1 class="fh5co-header-intro">联系我们</h1>
+            </div>
+        </header>
+        <!-- /fh5co-header -->
+        <div id="fh5co-contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5 col-md-push-1 animate-box">
+                        <div class="fh5co-contact-info">
+                            <h3>联系信息</h3>
+                            <ul>
+                                <li class="address">江苏省扬州市, <br> 邗江区三盛写字楼</li>
+                                <li class="phone"><a href="tel://1234567920">+ 1235 2355 98</a></li>
+                                <li class="email"><a href="mailto:info@yoursite.com">info@meizizi.com</a></li>
+                                <li class="url"><a href="#">www.sohu.com</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6 animate-box">
+                        <h3>取得联系</h3>
+                        <form action="/Contact/Save" data-toggle="validate" data-alertmsg="false" method="post">
+                            <div class="row form-group">
+                                <div class="col-md-6">
+                                    <!-- <label for="fname">First Name</label> -->
+                                    <input type="text" id="name" name="Name" class="form-control" placeholder="你的名字" required>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-12">
+                                    <!-- <label for="email">Email</label> -->
+                                    <input type="text" id="phone" name="Phone" class="form-control" placeholder="你的联系方式" required>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-12">
+                                    <!-- <label for="subject">Subject</label> -->
+                                    <input type="email" id="email" name="Email" class="form-control" placeholder="你的邮箱" required>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-12">
+                                    <!-- <label for="message">Message</label> -->
+                                    <textarea name="Message" id="message" cols="30" rows="10" class="form-control" placeholder="留言" required></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="提交" class="btn btn-primary" data-icon="save" data-toggle="popover">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+      
+        
+    <script src="~/wwwroot/js/jquery-1.10.2.min.js"></script>
+    <script src="~/wwwroot/js/jquery.easing.1.3.js"></script>
+    <script src="~/wwwroot/js/bootstrap.js"></script>
+    <script src="~/wwwroot/js/modernizr-2.6.2.min.js"></script>
+    <script src="~/wwwroot/js/owl.carousel.min.js"></script>
+    <script src="~/wwwroot/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/wwwroot/js/custom.js"></script>
+</body>
+</html>

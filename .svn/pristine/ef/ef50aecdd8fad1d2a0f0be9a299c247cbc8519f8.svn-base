@@ -1,0 +1,13 @@
+﻿<nav role="navigation" id="fh5co-nav-slide">
+    <div class="container">
+        <div class="fh5co-nav-inner">
+            <ul>
+                <li class="active"><a href="/Home/Index">主页</a></li>
+                <li class="active"><a href="/Contact/Contact">联系我们</a></li>
+                <li><a href="/Register/Index">注册</a></li>
+                <li><a href="/Account/Login">登录</a></li>
+                <li><a href="/ShowDisplay/Index">大屏互动演示</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>

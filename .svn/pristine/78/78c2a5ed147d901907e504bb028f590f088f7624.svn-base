@@ -1,0 +1,146 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>登录</title>
+    <link href="~/wwwroot/Wopop_files/style_log.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="~/wwwroot/Wopop_files/style.css">
+    <link rel="stylesheet" type="text/css" href="~/wwwroot/Wopop_files/userpanel.css">
+    <link rel="stylesheet" type="text/css" href="~/wwwroot/Wopop_files/jquery.ui.all.css">
+
+    <script type="text/javascript">
+        var COOKIE_NAME = 'sys_em_username';
+        $(function () {
+
+            choose_bg();
+            changeCode();
+            if ($.cookie(COOKIE_NAME)) {
+                $("#j_username").val($.cookie(COOKIE_NAME));
+                $("#j_password").focus();
+                $("#j_remember").attr('checked', true);
+            } else {
+                $("#j_username").focus();
+            }
+            $("#captcha_img").click(function () {
+                changeCode();
+            });
+            $("#login_form").submit(function () {
+                var issubmit = true;
+                var i_index = 0;
+                $(this).find('.form-control').each(function (i) {
+                    if ($.trim($(this).val()).length == 0) {
+                        $(this).css('border', '1px #ff0000 solid');
+                        issubmit = false;
+                        if (i_index == 0)
+                            i_index = i;
+                    }
+                });
+                if (!issubmit) {
+                    $(this).find('.form-control').eq(i_index).focus();
+                    return false;
+                }
+                var $remember = $("#j_remember");
+                if ($remember.attr('checked')) {
+                    $.cookie(COOKIE_NAME, $("#j_username").val(), { path: '/', expires: 15 });
+                } else {
+                    $.cookie(COOKIE_NAME, null, { path: '/' });  //删除cookie
+                }
+
+                $("#login_ok").attr("disabled", true).val('登陆中..');
+                /*
+                var key = CryptoJS.enc.Base64.parse($("#j_randomKey").val());
+                var iv = CryptoJS.enc.Latin1.parse('0102030405060708');
+                var password = CryptoJS.AES.encrypt($("#j_password").val(), key, {iv:iv, mode:CryptoJS.mode.CBC, padding:CryptoJS.pad.Pkcs7 });
+
+                $("#j_password").val(password)
+                */
+
+                //return true;
+
+                location.href = 'index.html'
+
+            });
+        });
+        function changeCode() {
+            //$("#captcha_img").attr("src", "sys/login/getCaptcha?t="+ (new Date().getTime()));
+        }
+        function choose_bg() {
+            var bg = Math.floor(Math.random() * 2 + 1);
+            //$('body').css('background-image', 'url(/resources/libs/b-jui/images/loginbg_0' + bg + '.jpg)');
+        }
+    </script>
+    <script>
+          var storage = window.localStorage;
+          if("yes" == storage["isstorename"]){
+                  $("#remb_me").attr("checked", true);
+                  $("#login_phone").val(storage["loginphone"]);
+                  $("#login_name").val(storage["loginname"]);
+              }
+    </script>
+    <script>
+        var storage = window.localStorage;
+         if($("#remb_me").is(':checked')){
+                 //存储到loaclStage
+                 storage["loginphone"] = $("#login_phone").val();
+                 storage["loginname"] = $("#login_name").val();
+                 storage["isstorename"] =  "yes";
+             }else{
+                 storage["loginphone"] = "";
+                 storage["loginname"] = "";
+                 storage["isstorename"] =  "no";
+             }
+    </script>
+</head>
+<body class="login" mycollectionplug="bind">
+    <div class="login_m">
+        <form action="@Url.Action("Login","Account")" id="login_form" method="post">
+            <div class="login_logo"><img src="~/wwwroot/Wopop_files/logo.png" width="196" height="46"></div>
+            <div class="login_boder">
+                <div class="login_padding" id="login_model">
+                    <h2>用户名</h2>
+                    <label>
+                        <input type="text" class="txt_input txt_input2" id="j_username" name="UserName" value="" placeholder="登录账号">
+                    </label>
+                    <h2>密码</h2>
+                    <label>
+                        <input type="password" class="txt_input" id="j_password" name="UserPassword" placeholder="登录密码">
+                    </label>
+
+
+
+                    <p class="forgot"><a id="iforget" href="javascript:void(0);">忘记密码?</a></p>
+                    <div class="rem_sub">
+                        <div class="rem_sub_l">
+                            <label for="j_remember" class="m"><input id="j_remember" type="checkbox" value="true">&nbsp;记住我</label>
+                        </div>
+                        <label>
+                            <input type="submit" class="sub_button" name="button" id="button" value="登录" style="opacity: 0.7;">
+                        </label>
+                    </div>
+                </div>
+
+                @*<div id="forget_model" class="login_padding" style="display:none">
+                        <br>
+                        <h1>Forgot password</h1>
+                        <br>
+                        <div class="forget_model_h2">(Please enter your registered email below and the system will automatically reset users’ password and send it to user’s registered email address.)</div>
+                        <label>
+                            <input type="text" id="usrmail" class="txt_input txt_input2">
+                        </label>
+                        <div class="rem_sub">
+                            <div class="rem_sub_l">
+                            </div>
+                            <label>
+                                <input type="submit" class="sub_buttons" name="button" id="Retrievenow" value="Retrieve now" style="opacity: 0.7;">
+                                <input type="submit" class="sub_button" name="button" id="denglou" value="Return" style="opacity: 0.7;">
+                            </label>
+                        </div>
+                    </div>*@
+                <!--login_padding  Sign up end-->
+            </div><!--login_boder end-->
+        </form>
+    </div>
+
+
+</body>
+</html>

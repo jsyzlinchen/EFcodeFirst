@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+
+<html class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>注册</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Free HTML5 Template by FREEHTML5.co" />
+    <meta name="keywords" content="freebie, template, bootstrap, html5, css3, mobile first, responsive" />
+    <meta name="author" content="FREEHTML5.co" />
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- Google Webfont -->
+    <link href='http://fonts.useso.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap & Style -->
+    <link rel="stylesheet" href="~/wwwroot/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/wwwroot/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/wwwroot/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/wwwroot/css/magnific-popup.css">
+    <link rel="stylesheet" href="~/wwwroot/css/style.css">
+
+    <!-- Iconfonts -->
+    <link rel="stylesheet" href="~/wwwroot/css/themify-icons.css">
+
+
+
+</head>
+<body id="inner-page">
+    <div id="top"></div>
+    <div id="fh5co-page">
+
+        @{
+            Html.RenderPartial("~/Views/_Base/_BaseElement.cshtml");
+        }
+
+        <header id="fh5co-header" role="banner">
+            <div class="container">
+
+                <a href="index.html" id="fh5co-header-logo"><img src="~/wwwroot/images/logo.png" alt="Sprint Logo"></a>
+                <a href="#" class="fh5co-header-bars js-nav-toggle"><span>Menu</span> <i class="ti-menu"></i></a>
+
+                <h1 class="fh5co-header-intro">用户注册</h1>
+            </div>
+        </header>
+        <!-- /fh5co-header -->
+        <div id="fh5co-contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5 col-md-push-1 animate-box">
+                        <div class="fh5co-contact-info">
+
+                        </div>
+                    </div>
+                    <div class="col-md-6 animate-box">
+                        <h3>注册</h3>
+                        <form action="/Register/Register" data-toggle="validate" data-alertmsg="false" method="post">
+                            <div class="row form-group">
+                                <div class="col-md-12">
+                                    <!-- <label for="fname">First Name</label> -->
+                                    <input type="text" id="username" name="UserName" class="form-control" placeholder="用户名" required>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-12">
+                                    <!-- <label for="email">Email</label> -->
+                                    <input type="password" id="userpassword" name="UserPassword" class="form-control" placeholder="密码" required onchange="checkPasswords()">
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-12">
+                                    <!-- <label for="email">Email</label> -->
+                                    <input type="password" id="confirmpassword" name="ConfirmPassword" class="form-control" placeholder="确认密码" required onchange="checkPasswords()">
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-12">
+                                    <!-- <label for="subject">Subject</label> -->
+                                    <input type="text" id="name" name="Name" class="form-control" placeholder="你的真实姓名" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="submit" value="提交" class="btn btn-primary" data-icon="save" data-toggle="popover">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkPasswords() {
+            var pass1 = document.getElementById("userpassword");
+            var pass2 = document.getElementById("confirmpassword");
+            if (pass1.value != pass2.value)
+                pass1.setCustomValidity("两次输入的密码不匹配");
+            else
+                pass1.setCustomValidity("");
+        }
+    </script>
+        <script src="~/wwwroot/js/jquery-1.10.2.min.js"></script>
+        <script src="~/wwwroot/js/jquery.easing.1.3.js"></script>
+        <script src="~/wwwroot/js/bootstrap.js"></script>
+        <script src="~/wwwroot/js/modernizr-2.6.2.min.js"></script>
+        <script src="~/wwwroot/js/owl.carousel.min.js"></script>
+        <script src="~/wwwroot/js/jquery.magnific-popup.min.js"></script>
+        <script src="~/wwwroot/js/custom.js"></script>
+</body>
+</html>
